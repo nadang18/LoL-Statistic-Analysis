@@ -3,26 +3,33 @@ League of Legends results analysis is a comprehensive data science project aimed
 
 # Introduction
 
+---
+
 # Data Cleaning and Exploratory Data Analysis
+
 
 ## Data Cleaning
 ## Univariate Analysis
 ## Bivariate Analysis
 ## Interesting Aggregates
 
-
+---
 
 # Assessment of Missingness
 
+---
 
 # Hypothesis Testing
 
+---
 
 # Framing a Prediction Problem
 
+---
 
 # Baseline Model
 
+---
 
 # Final Model
 
