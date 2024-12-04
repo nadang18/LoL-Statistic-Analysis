@@ -33,6 +33,7 @@ League of Legends results analysis is a comprehensive data science project aimed
 
 # Final Model
 
+---
 
 # Fairness Analysis
 
