@@ -56,6 +56,10 @@ In this data science research, we will ......
 ></iframe>
 
 ## Interesting Aggregates
+| Side | Dragons | Heralds | Barons |
+| :--- | ------: | ------: | -----: |
+| Blue |  2.0544 |  0.6103 | 0.7390 |
+| Red  |  2.3752 |  0.3814 | 0.6890 |
 
 ---
 
