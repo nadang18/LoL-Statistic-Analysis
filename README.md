@@ -62,6 +62,8 @@ In this data science research, we will ......
   height="600"
   frameborder="0"
 ></iframe>
+  Attached is our pivot table where we aggregated the average number of dragons, heralds, and barons captured per team side.
+
 ---
 
 # Assessment of Missingness
