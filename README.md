@@ -56,7 +56,12 @@ In this data science research, we will ......
 ></iframe>
 
 ## Interesting Aggregates
-
+<iframe
+  src="assets/interest_agg.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 ---
 
 # Assessment of Missingness
