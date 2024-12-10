@@ -56,10 +56,7 @@ In this data science research, we will ......
 ></iframe>
 
 ## Interesting Aggregates
-| side   |   dragons |   heralds |   barons |
-|-------|----------|----------|---------|
-| Blue   |   2.05446 |  0.610313 | 0.738963 |
-| Red    |   2.3752  |  0.381355 | 0.689023 |
+'| side   |   dragons |   heralds |   barons |\n|--------|-----------|-----------|----------|\n| Blue   |   2.05446 |  0.610313 | 0.738963 |\n| Red    |   2.3752  |  0.381355 | 0.689023 |'
 
 Attached is our pivot table where we aggregated the average number of dragons, heralds, and barons captured per team side.
 
