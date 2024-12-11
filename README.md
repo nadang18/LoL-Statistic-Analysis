@@ -51,12 +51,15 @@ The remaining columns of our data remain unchanged as they are already filtered 
 
 
 ## Univariate Analysis
+Below, we perform some univariate analysis on our data regarding the distribution of each epic jungle monster objectives secured
+
 <iframe
   src="assets/first_uni_dragons.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+> This plot shows the distribution of amount of dragons captured in total. The two columns with the highest distribution are 2 and 3, denoting that it is most common to capture around 2 to 3 dragons per game, highlighting the difficulty of such an objective.
 
 <iframe
   src="assets/first_uni_heralds.html"
@@ -64,6 +67,7 @@ The remaining columns of our data remain unchanged as they are already filtered 
   height="600"
   frameborder="0"
 ></iframe>
+> This plot shows the distribution of the amount of heralds captured in total. It is interesting to see that the distribution is either 0 or 1, suggesting that only 1 herald monster is spawned to be capturable throughout the course of the entire game.
 
 <iframe
   src="assets/first_uni_barons.html"
@@ -71,6 +75,7 @@ The remaining columns of our data remain unchanged as they are already filtered 
   height="600"
   frameborder="0"
 ></iframe>
+> This plot shows the distribution of barons captured in total. The decreasing distribution suggests that baron may be the hardest jungle monster to capture by far as most game team fails to capture any baron and the distribution massively decreases at the count of 2, suggesting that this objective is rare and may serve to be crucial for the game.
 
 <iframe
   src="assets/fig2.html"
@@ -78,6 +83,7 @@ The remaining columns of our data remain unchanged as they are already filtered 
   height="600"
   frameborder="0"
 ></iframe>
+> This box plot represents the statistics of all three epic jungle monsters and their number of capturements. From here we can see that there exist at most 7 dragons in a normal duration of a game and 5 barons. This is followed by the median amount of capturements for dragon being 2, baron as 1, and herald as 0.
 
 ## Bivariate Analysis
 <iframe
