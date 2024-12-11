@@ -1,5 +1,6 @@
 # League of Legends Results Analysis
 League of Legends results analysis is a comprehensive data science project aimed at studying and predicting the relationship between winning and losing odds of a game based on varying factors of the game. The project employs data analysis, inference, and the conclusion of such analysis. Throughout this project, we will aim to assess data frame value missingness, conduct hypothesis testing, and build a prediction model all while evaluating its fairness it. This project employ the uses of Python, along with many modules such as panda, numpy, plotly, scikitlearn, etc.
+
 by: Nathan Dang
 
 
