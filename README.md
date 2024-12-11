@@ -125,8 +125,8 @@ From our dataframe, we believe that columns of bans: **ban1**, **ban2**, **ban3*
 Other than our NMAR analysis, we will now try to examine other columns that contains missing values and see if we can attribute their missingness dependency upon other columns (proving if MAR holds).
 
 First we analyze the missingness of the column **goldat25** and see if its missingness is dependent of other columns. To do so, we will perform a permutation test with the following test hypothesis:
-- Null Hypothesis H~(0): The missingness of the goldat25 column is independent of the game length (MAR fails).
-- Alternative Hypothesis H~(1): The missingness of the goldat25 column depends on the game length (MAR holds).
+- Null Hypothesis H<sub>(0)</sub>: The missingness of the goldat25 column is independent of the game length (MAR fails).
+- Alternative Hypothesis H<sub>(1)</sub>: The missingness of the goldat25 column depends on the game length (MAR holds).
 
   
 ---
