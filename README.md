@@ -35,10 +35,19 @@ The Dataset contains multiple columns denoting game statistics and values, as we
 # Data Cleaning and Exploratory Data Analysis
 
 ## Data Cleaning
-| teamname          | gamelength | side | result | kills | deaths | assists | firstdragon | dragons | heralds | barons | golddiffat10 | golddiffat15 | golddiffat20 | golddiffat25 | epic_objectives |
-|-------------------|------------|------|--------|-------|--------|---------|-------------|---------|---------|--------|--------------|--------------|--------------|--------------|-----------------|
-| BoostGate Esports | 1446       | Blue | 1      | 20    | 7      | 47      | 1           | 2       | 1       | 1      | 1364         | 2293         | 4248         | 12741        | 4               |
-| Dark Passage      | 1446       | Red  | 0      | 7     | 20     | 14      | 0           | 1       | 0       | 0      | -1364        | -2293        | -4248        | -12741       | 1              
+First, we will query to only keep rows denoting the value of a whole team rather than each individual player. Then we will filter to only keep rows with complete data. Afterward, we will keep columns presented in the introduction as they are relevant to our research. Below are certain changes we made on each column to be more coherent and practical with our research:
+- ==gameid==: Game Id column will be set as the index to avoid confusion with the original index
+- ==epic_objectives==: We add a new column containing the row sum of dragons, heralds, and barons captured by each team.
+
+The remaining columns of our data remain unchanged as they are already filtered and cleaned out by the original download of the CSV.
+
+| teamname          |   gamelength | side   |   result |   kills |   deaths |   assists |   firstdragon |   dragons |   heralds |   barons |   visionscore |   totalgold |   epic_objectives |
+|:------------------|-------------:|:-------|---------:|--------:|---------:|----------:|--------------:|----------:|----------:|---------:|--------------:|------------:|------------------:|
+| BoostGate Esports |         1446 | Blue   |        1 |      20 |        7 |        47 |             1 |         2 |         1 |        1 |           186 |       52523 |                 4 |
+| Dark Passage      |         1446 | Red    |        0 |       7 |       20 |        14 |             0 |         1 |         0 |        0 |           141 |       39782 |                 1 |
+| unknown team      |         2122 | Blue   |        1 |      31 |       20 |        60 |             0 |         2 |         0 |        1 |           251 |       72355 |                 3 |
+| unknown team      |         2122 | Red    |        0 |      20 |       31 |        23 |             1 |         3 |         1 |        1 |           251 |       66965 |                 5 |
+| unknown team      |         2099 | Blue   |        1 |      24 |        8 |        54 |             1 |         2 |         1 |        1 |           261 |       68226 |                 4 |
 
 
 ## Univariate Analysis
