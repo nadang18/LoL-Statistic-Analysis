@@ -56,13 +56,7 @@ In this data science research, we will ......
 ></iframe>
 
 ## Interesting Aggregates
-<iframe
-  src="assets/interest_agg.html"
-  width="1000"
-  height="800"
-  frameborder="0"
-  style="border: none;"
-></iframe>
+<iframe src="assets/interest_agg.html" width="600" height="300" frameborder="0" style="border: none; transform: scale(1.5); transform-origin: top left;"></iframe>
 
 Attached is our pivot table where we aggregated the average number of dragons, heralds, and barons captured per team side.
 
