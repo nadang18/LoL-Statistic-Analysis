@@ -36,8 +36,8 @@ The Dataset contains multiple columns denoting game statistics and values, as we
 
 ## Data Cleaning
 First, we will query to only keep rows denoting the value of a whole team rather than each individual player. Then we will filter to only keep rows with complete data. Afterward, we will keep columns presented in the introduction as they are relevant to our research. Below are certain changes we made on each column to be more coherent and practical with our research:
-- ==gameid==: Game Id column will be set as the index to avoid confusion with the original index
-- ==epic_objectives==: We add a new column containing the row sum of dragons, heralds, and barons captured by each team.
+- **gameid**: Game Id column will be set as the index to avoid confusion with the original index
+- **epic_objectives**: We add a new column containing the row sum of dragons, heralds, and barons captured by each team.
 
 The remaining columns of our data remain unchanged as they are already filtered and cleaned out by the original download of the CSV.
 
@@ -51,7 +51,7 @@ The remaining columns of our data remain unchanged as they are already filtered 
 
 
 ## Univariate Analysis
-Below, we perform some univariate analysis on our data regarding the distribution of each epic jungle monster objectives secured
+Below, we perform some univariate analysis, analysis that focuses on one column of our data. Our analysis mainly revolves around details regarding the distribution of each epic jungle monster objectives secured as we hope to analyze its relationship to game results later on.
 
 <iframe
   src="assets/first_uni_dragons.html"
@@ -83,15 +83,18 @@ Below, we perform some univariate analysis on our data regarding the distributio
   height="600"
   frameborder="0"
 ></iframe>
-> This box plot represents the statistics of all three epic jungle monsters and their number of capturements. From here we can see that there exist at most 7 dragons in a normal duration of a game and 5 barons. This is followed by the median amount of capturements for dragon being 2, baron as 1, and herald as 0.
+> This box plot represents the statistics of all three epic jungle monsters and their number of captures. From here we can see that there exist at most 7 dragons in a normal duration of a game and 5 barons. This is followed by the median amount of captures for dragon being 2, baron as 1, and herald as 0.
 
 ## Bivariate Analysis
+Following this, we will perform bivariate analysis, information capturing two columns of data. We will now try and explore an interesting relationship between winning percentage and other factors of the game.
+
 <iframe
   src="assets/fig3.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+> Here we analyze the winning percentage of the game depending on what side of the map your team plays on. There exists a small difference between the red and blue sides where the  blue side exhibits more wins. Could this difference be due to random chance or are there underlying causes  that prove that one side is better? We will shortly explore a multitude of relationships in our research.
 
 <iframe
   src="assets/fig4.html"
@@ -99,6 +102,7 @@ Below, we perform some univariate analysis on our data regarding the distributio
   height="600"
   frameborder="0"
 ></iframe>
+> In this pie chart we can see that the team that secures the more amount of total epic jungle objectives has an increased winning percentage. This shows that capturing epic jungle monsters shows inherent benefits that greatly pushes the direction of the game.
 
 ## Interesting Aggregates
 <iframe src="assets/interest_agg.html" width="600" height="300" frameborder="0" style="border: none; transform: scale(1.5); transform-origin: top left;"></iframe>
