@@ -56,10 +56,13 @@ In this data science research, we will ......
 ></iframe>
 
 ## Interesting Aggregates
-| result   |       top |       jng |       mid |       bot |       sup |
-|:---------|----------:|----------:|----------:|----------:|----------:|
-| Loss     | -0.600672 | -0.450003 | -0.571546 | -0.529343 | 0.0119695 |
-| Win      | -0.55555  | -0.385083 | -0.508304 | -0.443249 | 0.100207  |
+<iframe
+  src="assets/interest_agg.html"
+  width="1000"
+  height="800"
+  frameborder="0"
+  style="border: none;"
+></iframe>
 
 Attached is our pivot table where we aggregated the average number of dragons, heralds, and barons captured per team side.
 
