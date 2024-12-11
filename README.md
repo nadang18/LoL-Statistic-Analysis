@@ -190,21 +190,84 @@ Running our permutaiton test at a significant level of 5%, we get the following 
   height="600"
   frameborder="0"
 ></iframe>
+With a p-value of 0.0, which is less than our 0.05 threshold, we reject the null hypothesis. Furthermore, we receive an observed statitic of 2.66, thus our data suggests that team that secure more epic objectives (dragons,barons,heralds) are more liekly to win the game.
 
 ---
 
 # Framing a Prediction Problem
+Since our hypothesis test explored the relationship between epic jungle monsters secured and results of the game, it would make sense for us now to establish a basic prediction model to predict the result of a game given the number of dragons, heralds, and barons secured. To do so, we derive the following dataframe with relevant columns to our prediction:
+
+| teamname          | side   |   gamelength |   kills |   deaths |   assists |   dragons |   heralds |   barons |   firsttower |   visionscore |   earnedgold |   totalgold |   result |
+|:------------------|:-------|-------------:|--------:|---------:|----------:|----------:|----------:|---------:|-------------:|--------------:|-------------:|------------:|---------:|
+| BoostGate Esports | Blue   |         1446 |      20 |        7 |        47 |         2 |         1 |        1 |            1 |           186 |        36396 |       52523 |        1 |
+| Dark Passage      | Red    |         1446 |       7 |       20 |        14 |         1 |         0 |        0 |            0 |           141 |        23655 |       39782 |        0 |
+| unknown team      | Blue   |         2122 |      31 |       20 |        60 |         2 |         0 |        1 |            0 |           251 |        49333 |       72355 |        1 |
+| unknown team      | Red    |         2122 |      20 |       31 |        23 |         3 |         1 |        1 |            1 |           251 |        43943 |       66965 |        0 |
+| unknown team      | Blue   |         2099 |      24 |        8 |        54 |         2 |         1 |        1 |            0 |           261 |        45438 |       68226 |        1 |
+
+Given that we are predicting the result of a game, either win(1) or lost (0), this is considered a classification problem. This means that we will either have to employ our model of decision tree or random forest to build our model. To test how effective our prediction models are we will use accuracy score, along side with f1-score to ensure that our model accurately predict results without any instances of false positive or false negative biases.
+
+With these information in mind, we will first see how well a basic model of a decision tree can do.
 
 ---
 
 # Baseline Model
+For our baseline model, we will simply implement a decision tree to predict the result of the game on three feature columns: **dragons**, **heralds**, **barons**. Furthermore, to introduce some nuance to our model, we will split the data into a training and a testing set to ensure that we are not underfitting or overfitting our prediction.
+
+We will implement the use of scikit-learn to instantiate a pipeline where we will standardize our three feature columns. This is due to the fact that games can vary in length, thus longer games can lead to higher amounts of epic jungle monster objectives captured.
+
+After running our basic model, we received a **training score** accuracy of 85.72% and a **testinng score** accuracy of 85.46%. This seems relatively good for a basic model, but these accuracy score is not all as we still need to test for the precision, recall, and f1-score to ensure no biases in false positive or false negative cases. Runing those cases, we receive a **precision score** of 81.75%, **recall score** of 91.70%, and a **f1-score** of 86.34%. Considering a basic model, our test shows that the model is relatively decent in predicting the result of match given those three features. This further highlight the importance of securing jungle objectives in a game as they can contribute to much of the gameplay that can truly push for a victory!
 
 ---
 
 # Final Model
+Although our basic model perform relatively decent, there is still room for improvement as we seek to add more feature columns as well as enhance our decision tree to a random forest classifier. Below we decided to add four more column features we believe directly affect gameplay and potentially the result of the game:
+
+In our final model, we will include 3 more features that directly affect the amount of jungle objectives security:
+
+- **side**: as we have found out in our *bivariate analysis*, depending on which side your team is playing on can affect the amount of heralds and dragons captured
+
+- **kills**: this column is self-explanatory as each kill gives your team a higher number advantage when a fight breaks on when contesting these objectives
+  
+- **visionscore**: this mark allows team to have more awareness on current activities of the game, namely enemy team's action which allows team to stop enemy from capturing objectives
+ 
+- **earnedgold**: gives us a hollistic view on how well each team is doing as the higher the stronger your team will be with purchases of items that allows you to further contest objectives and in return, gain even more gold.
+
+Furthermore, we will also modify our classifer from a simple decision trea to a random forest classifier to gain better results in terms of accuracy. Furthermore, we will also employ the use of GridSearchCV to find the most optimal hyperparameter as to avoid overfitting. Here we test hyperparameter on three distinct critiria:
+
+- **n_estimator**: the amount of trees we will have in our random forest, ranging from 2 to 100 with step size of 2
+
+- **max_depth**: the depth that each tree will split into, ranging from 2 to 200 with step size of 20
+
+- **criterion**: the criterion in which we determine our model, either gini or entropy
+
+As for transforming our columns, we will binarize the side column as the column contains binary value of *red* or *blue* side. The reamining columns we will standardize as well due to reasoning that longer game can potentially increase the value for all those columns. Preprocessing our data using a column transformer, we now pass it through a pipeline using a random forest classifer. To ensure we are selecting the best hyperparameters, we will run it all through GridSearchCV to predict the data at the best hyperparameters. 
+
+With all said and done, we now run for prediction results and observe that it contains a **training score** accuracy of 100% and a **testing score** accuracy of 88.51%. Similarly, our **precision score** gives us 87.38%, **recall score** of 90.10% and ultimately a **f1-score** of 88.70%. Although we did not significantly improve as our basic model already performs decently well, we still managed to show improvement overall. This implication can be relevant as with some extra steps, we were able to increase our model odds of correctly predicting a game result!
 
 ---
 
 # Fairness Analysis
+In any data science research project, it is important to question the fairness of one's analysis, testing whether the test applies equally for the different groups we are testing. Aggregating the dataframe shows us an interesting piece of information:
 
+- Total Victories for Blue Side: 4375
+- Total Victories for Red Side: 3916
+
+With blue side observing more total victories than red side, could our model be bias towards blue side, in that the outcome disparity between each side lead our model to be unbias. To test it out, we employ the use of fairness analysis.
+
+In our fairness analysis, we picked out two distinct group that our prediction model dealt with when predicting outcome of a game. However, there exist a noticeable difference in wins for blue side over the red side, as we found out in our bivariate analysis, thus we we employ the use of f1-score to balance precision and recall for this test due to the imbalance between distribution of win/lost on each side. Even then our goal is to test the model fairness for both side so we will use a permutation test on f1-score to evaluate our model fairness.
+
+Hypotheses:
+- Null Hypothesis (H₀): The model's precision is the same for teams on the Blue side and the Red side. Any observed differences are due to random chance.
+
+- Alternative Hypothesis (Hₐ): The model's precision is different for teams on the Blue side compared to the Red side.
+
+Running the permutation test gives us the following results:
+<iframe
+  src="assets/fig8.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+With a p value of 0.64, which is greater than the significant threshold of 0.05, we fail to reject the null hypothesis. This implies that our prediction model carries fair f1-score level for both side, meaning there is balance bewteen precision and recall of the model whether you are playing for blue or red side of the game.
 
