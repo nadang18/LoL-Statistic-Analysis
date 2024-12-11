@@ -145,7 +145,9 @@ Performing our permutation test, we get the following result:
   frameborder="0"
 ></iframe>
 > Here we observe a p-value of 0.0, which is less than the 0.05 threshold, thus we reject the null hypothesis.
+
 Our test shows an **observed statistic** of 578.40, and from there we see almost no intances where our test displays such instances. Thus with a **p-value** of 0.0, which is less than our significant threshold, we reject the null hypothesis. This then suggests that the missingness of **goldat25** is not independent of game length, thus MAR holds.
+
 
 
 Secondly, we will analyze the missingness of the **split** columna nd see if its missingnes is dependent of other columns. To do so, we will similarly conduct a permutation test with the following test hypotheses:
@@ -169,11 +171,25 @@ Performing our permutation test, we get the following result:
   frameborder="0"
 ></iframe>
 > Here we observe a p-value of 0.982, which is greater than the 0.05 threshold, thus we fail to reject the null hypothesis.
+
 Our test shows us that our observed TVD is well within our range of generated TVD, meaning that the distribution between two group is not statistically significant. Thus with a **p-value** of 0.982, which is greater than our significant threhold, we fail to reject the null hypothesis. This then suggests that the missingness of **split** is independent of side, thus MAR fails.
 
 ---
 
 # Hypothesis Testing
+In this section of our research project, we wil aim to analyze and assess the relationship between the number of epic jungle monster objectives secured and their likelyhood of winning a game. Below are our statistics for this permutation test to assess such relationship:
+
+- **Null Hypothesis H<sub>(0)</sub>**: There is no relationship between the number of epic objectives a team secures and their likelihood of winning. The number of epic objectives is unrelated to the game result; observed differences are due to random chance.
+- **Alternative Hypothesis H<sub>(1)</sub>**: Teams that secure more epic objectives (dragons, barons, etc.) are more likely to win the game.
+- **Test Statistic**: Differences in mean
+
+Running our permutaiton test at a significant level of 5%, we get the following result:
+<iframe
+  src="assets/fig7.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ---
 
