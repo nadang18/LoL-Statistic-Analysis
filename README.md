@@ -19,12 +19,12 @@ The Dataset contains multiple columns denoting game statistics and values, as we
 - **gamelength**: the length of the game in seconds
 - **side**: which side of the map the team plays on, either red or blue
 - **result**: the outcome of the game where 1 denotes victory and 0 is lost
-- **kills**: the total amount of kills the team achieve on the enemy team
+- **kills**: the total amount of kills the team achieves on the enemy team
 - **deaths**: the total amount of deaths the team accumulated
 - **assists**: the total amount of help to secure a kill
-- **firstdragon**: value of 1 or 0 on whether a team captured the first dragon spawn
+- **firstdragon**:the  value of 1 or 0 on whether a team captured the first dragon spawn
 - **dragons**: the total number of dragons a team captured 
-- **heralds**: the total number of heraldss a team captured
+- **heralds**: the total number of heralds a team captured
 - **barons**: the total number of barons a team captured
 - **visionscore**: the total amount of time a team established vision, spotting an enemy team
 - **totalgold**: the total amount of gold earned by a team
@@ -105,9 +105,13 @@ Following this, we will perform bivariate analysis, information capturing two co
 > In this pie chart we can see that the team that secures the more amount of total epic jungle objectives has an increased winning percentage. This shows that capturing epic jungle monsters shows inherent benefits that greatly pushes the direction of the game.
 
 ## Interesting Aggregates
-<iframe src="assets/interest_agg.html" width="600" height="300" frameborder="0" style="border: none; transform: scale(1.5); transform-origin: top left;"></iframe>
+With such interesting information gathered from our graph, we will now perform a basic pivot table to explore the mulitple relationship between these values:
+| side   |   dragons |   heralds |   barons |
+|:-------|----------:|----------:|---------:|
+| Blue   |   2.05446 |  0.610313 | 0.738963 |
+| Red    |   2.3752  |  0.381355 | 0.689023 |
 
-Attached is our pivot table where we aggregated the average number of dragons, heralds, and barons captured per team side.
+> We can see that blue side has a higher average of herald captured compared to red side. Similarly, red side also has a higher average of dragons captured compared to blue side, but no where near as high as the differences in heralds. This begs the question that could blue side exhibit a higher win percentage due to their advantage of being able to capture the herald more easily than red side, which we have analyzed to be important as every epic jungle monster objective contributes to increasing win percentage?
 
 ---
 
