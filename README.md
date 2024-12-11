@@ -124,11 +124,53 @@ From our dataframe, we believe that columns of bans: **ban1**, **ban2**, **ban3*
 ## MAR (Missing at Random) Analysis
 Other than our NMAR analysis, we will now try to examine other columns that contains missing values and see if we can attribute their missingness dependency upon other columns (proving if MAR holds).
 
-First we analyze the missingness of the column **goldat25** and see if its missingness is dependent of other columns. To do so, we will perform a permutation test with the following test hypothesis:
+First we analyze the missingness of the column **goldat25** and see if its missingness is dependent of other columns. To do so, we will perform a permutation test with a significant threshold of 5% and with the following test hypotheses:
 - Null Hypothesis H<sub>(0)</sub>: The missingness of the goldat25 column is independent of the game length (MAR fails).
 - Alternative Hypothesis H<sub>(1)</sub>: The missingness of the goldat25 column depends on the game length (MAR holds).
+Below is our table of missingness where we will perform permutation on the **goldat25_nan** to test our hypothesis:
 
-  
+|   gamelength |   goldat25 | goldat25_nan   |
+|-------------:|-----------:|:---------------|
+|         1446 |      52523 | False          |
+|         1446 |      39782 | False          |
+|         2122 |      45691 | False          |
+|         2122 |      44232 | False          |
+|         2099 |      43051 | False          |
+
+Performing our permutation test, we get the following result:
+<iframe
+  src="assets/fig5.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+> Here we observe a p-value of 0.0, which is less than the 0.05 threshold, thus we reject the null hypothesis.
+Our test shows an **observed statistic** of 578.40, and from there we see almost no intances where our test displays such instances. Thus with a **p-value** of 0.0, which is less than our significant threshold, we reject the null hypothesis. This then suggests that the missingness of **goldat25** is not independent of game length, thus MAR holds.
+
+
+Secondly, we will analyze the missingness of the **split** columna nd see if its missingnes is dependent of other columns. To do so, we will similarly conduct a permutation test with the following test hypotheses:
+- Null Hypothesis H<sub>(0)</sub>: The missingness of split is independent of the side of map (MAR fails).
+- Alternative Hypothesis H<sub>(1)</sub>: The missingness of split depends on the side of map (MAR holds).
+Below is our table of missingness where we will perform permutation on the **split_nan** to test our hypothesis:
+
+| side   | split   | split_nan   |
+|:-------|:--------|:------------|
+| Blue   | Winter  | False       |
+| Red    | Winter  | False       |
+| Blue   | Winter  | False       |
+| Red    | Winter  | False       |
+| Blue   | Winter  | False       |
+
+Performing our permutation test, we get the following result:
+<iframe
+  src="assets/fig6.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+> Here we observe a p-value of 0.982, which is greater than the 0.05 threshold, thus we fail to reject the null hypothesis.
+Our test shows us that our observed TVD is well within our range of generated TVD, meaning that the distribution between two group is not statistically significant. Thus with a **p-value** of 0.982, which is greater than our significant threhold, we fail to reject the null hypothesis. This then suggests that the missingness of **split** is independent of side, thus MAR fails.
+
 ---
 
 # Hypothesis Testing
