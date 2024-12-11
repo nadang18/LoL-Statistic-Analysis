@@ -10,6 +10,13 @@ In this data science research, we will ......
 # Data Cleaning and Exploratory Data Analysis
 
 ## Data Cleaning
+| teamname          |   gamelength | side   |   result |   kills |   deaths |   assists |   firstdragon |   dragons |   heralds |   barons |   golddiffat10 |   golddiffat15 |   golddiffat20 |   golddiffat25 |   epic_objectives |
+|:------------------|-------------:|:-------|---------:|--------:|---------:|----------:|--------------:|----------:|----------:|---------:|---------------:|---------------:|---------------:|---------------:|------------------:|
+| BoostGate Esports |         1446 | Blue   |        1 |      20 |        7 |        47 |             1 |         2 |         1 |        1 |           1364 |           2293 |           4248 |          12741 |                 4 |
+| Dark Passage      |         1446 | Red    |        0 |       7 |       20 |        14 |             0 |         1 |         0 |        0 |          -1364 |          -2293 |          -4248 |         -12741 |                 1 |
+| unknown team      |         2122 | Blue   |        1 |      31 |       20 |        60 |             0 |         2 |         0 |        1 |            -88 |            -75 |            777 |           1459 |                 3 |
+| unknown team      |         2122 | Red    |        0 |      20 |       31 |        23 |             1 |         3 |         1 |        1 |             88 |             75 |           -777 |          -1459 |                 5 |
+| unknown team      |         2099 | Blue   |        1 |      24 |        8 |        54 |             1 |         2 |         1 |        1 |          -2583 |           -561 |          -1528 |           1092 |                 4 |
 
 ## Univariate Analysis
 <iframe
