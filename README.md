@@ -118,6 +118,13 @@ With such interesting information gathered from our graph, we will now perform a
 
 # Assessment of Missingness
 
+## NMAR (Not Missing at Random) Analysis
+From our dataframe, we believe that columns of bans: ==ban1==, ==ban2==, ==ban3==, ==ban4==, ==ban5== are best explained as being dependent on itself. In league of legends, banning is an optional mechanic in which a player can rid a character out of the character pool, thus making it impossible for anyone to play as that champion. Thus the missingness of the different ban columns are best explained as NMAR as a player may choose to not ban anyone, thus its missingness is dependent on itself.
+
+## MAR (Missing at Random) Analysis
+Other than our NMAR analysis, we will now try to examine other columns that contains missing values and see if we can attribute their missingness dependency upon other columns (proving if MAR holds).
+
+First we analyze the missingness of the column 
 ---
 
 # Hypothesis Testing
