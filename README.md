@@ -106,10 +106,11 @@ Following this, we will perform bivariate analysis, information capturing two co
 
 ## Interesting Aggregates
 With such interesting information gathered from our graph, we will now perform a basic pivot table to explore the mulitple relationship between these values:
+
 | side   |   dragons |   heralds |   barons |
 |:-------|----------:|----------:|---------:|
-| Blue   |   2.05446 |  0.610313 | 0.738963 |
-| Red    |   2.3752  |  0.381355 | 0.689023 |
+| Blue   |   2.05446 |   0.61031 |   0.73896 |
+| Red    |   2.37520 |   0.38135 |   0.68902 |
 
 > We can see that blue side has a higher average of herald captured compared to red side. Similarly, red side also has a higher average of dragons captured compared to blue side, but no where near as high as the differences in heralds. This begs the question that could blue side exhibit a higher win percentage due to their advantage of being able to capture the herald more easily than red side, which we have analyzed to be important as every epic jungle monster objective contributes to increasing win percentage?
 
